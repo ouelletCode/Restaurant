@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/C0D3Withwally/Restaurant/issues"
   },
-  "homepage": "https://github.com/C0D3Withwally/Restaurant#readme"
+  "homepage": "https://github.com/C0D3Withwally/Restaurant#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
 }
