@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QuébeChine</title>
+    <link rel="stylesheet" href="Menu_stylesheet.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="header-title">Menu</h1>
+      <nav>
+        <ul>
+          <li>
+            <a href="./index.html" aria-label="Page d'accueil">Accueil</a>
+          </li>
+          <li><a href="./lechef.html" aria-label="Le chef">Le Chef</a></li>
+          <li><a href="./menu.html" aria-label="Menu">Menu</a></li>
+          <li><a href="./contact.html" aria-label="Contact">Contact</a></li>
+          <li><a href="./panier.html">Panier</a></li>
+
+        </ul>
+      </nav>
+    </header>
+
+    <section class="gallery-container">
+      <div class="gallery-item">
+        <div class="image">
+          <a target="_blank" href="001.jpg">
+            <img src="001.jpg" alt="Un plat" width="400" height="400" />
+          </a>
+        </div>
+        <div class="box text-box">
+          <p>
+            ### 🍱 Table asiatique gourmande à partager Une véritable invitation
+            au voyage culinaire : cette table regorge de petits plats colorés et
+            parfumés qui célèbrent l’équilibre parfait entre fraîcheur, textures
+            et saveurs umami. Au centre, un bol généreux de légumes croquants et
+            de vermicelles s’entrelace avec des herbes fraîches et une touche de
+            sésame, tandis qu’un poulet laqué, doré et nappé d’une sauce
+            sucrée-salée, apporte une note réconfortante et gourmande. À côté,
+            des bouchées vapeur moelleuses se trempent dans une sauce soja
+            relevée, et une salade vive aux accents d’agrumes et de coriandre
+            vient rafraîchir l’ensemble. Chaque assiette invite à picorer,
+            partager et mélanger les saveurs : du croustillant au fondant, du
+            doux au relevé, c’est un festin convivial où chaque bouchée raconte
+            une escale en Asie.
+          </p>
+
+          <div class="actions">
+            <span class="price">29.99$</span>
+            <button onclick="ajouterAuPanier(1, 'Nouilles impériales', 29.99)">
+              Ajouter au panier
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item reverse">
+        <div class="image">
+          <a target="_blank" href="002.jpg">
+            <img src="002.jpg" alt="Un plat" width="400" height="400" />
+          </a>
+        </div>
+        <div class="box text-box">
+          <p>
+            ### 🥗 Salade croquante aux accents d’Asie Fraîche, vive et
+            délicatement parfumée, cette salade met en scène un mélange de
+            légumes finement émincés, de vermicelles soyeux et d’herbes fraîches
+            qui embaument la coriandre et le basilic. Les touches de radis et de
+            verdure apportent un croquant irrésistible, tandis que des crevettes
+            tendres ajoutent une note iodée et gourmande. Le tout est relevé
+            d’une vinaigrette légère aux accents de sésame et de gingembre, qui
+            lie chaque bouchée avec équilibre : à la fois rafraîchissante,
+            aromatique et subtilement relevée. Une entrée lumineuse qui ouvre
+            l’appétit et invite à savourer lentement chaque texture.
+          </p>
+          <div class="actions">
+            <span class="price">19.99$</span>
+            <button onclick="ajouterAuPanier(2, 'Salade croquante', 19.99)">
+              Ajouter au panier
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="image">
+          <a target="_blank" href="003.jpg">
+            <img src="003.jpg" alt="Un plat" width="400" height="400" />
+          </a>
+        </div>
+        <div class="box text-box">
+          <p>
+            ### 🍜 Nouilles sautées parfumées au sésame et à la lime Un bol
+            réconfortant où les nouilles sautées se mêlent à des légumes
+            croquants, des herbes fraîches et des touches d’agrumes. La lime
+            apporte une fraîcheur vive qui réveille les saveurs, tandis que la
+            coriandre et le sésame ajoutent profondeur et parfum. Des morceaux
+            tendres de poisson ou de fruits de mer se fondent dans l’ensemble,
+            enrobés d’une sauce légèrement sucrée-salée aux notes grillées.
+            Chaque bouchée offre un équilibre entre le fondant des nouilles, le
+            croquant des légumes et la fraîcheur herbacée. Un plat généreux et
+            vibrant, à la fois nourrissant et rafraîchissant, parfait pour une
+            pause gourmande pleine de caractère.
+          </p>
+          <div class="actions">
+            <span class="price">24.99$</span>
+            <button onclick="ajouterAuPanier(3, 'Nouilles sautées', 24.99)">
+              Ajouter au panier
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="image">
+          <a target="_blank" href="genral_tao.jpg">
+            <img src="genral_tao.jpg".jpg" alt="Un plat" width="400" height="400" />
+          </a>
+        </div>
+        <div class="box text-box">
+          <p>
+            🍗 Poulet Général Tao croustillant et parfumé Un classique
+            réconfortant où des morceaux de poulet croustillants sont enrobés
+            d’une sauce riche, légèrement sucrée et relevée d’une touche d’ail
+            et de gingembre. La sauce, brillante et savoureuse, offre un
+            équilibre parfait entre douceur, acidité et chaleur épicée. Servi
+            avec des légumes sautés croquants et parsemé de graines de sésame et
+            d’oignons verts, le plat allie textures et intensité aromatique.
+            Chaque bouchée marie le croustillant du poulet à une sauce
+            enveloppante et gourmande. Un incontournable généreux et plein de
+            caractère, parfait pour satisfaire les envies de saveurs franches et
+            réconfortantes.
+          </p>
+          <div class="actions">
+            <span class="price">34.99$</span>
+            <button onclick="ajouterAuPanier(1, 'Poulet Général Tao', 34.99)">
+              Ajouter au panier
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
