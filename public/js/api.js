@@ -23,3 +23,9 @@ function afficherMessage(el, texte, estErreur) {
 
 const COURRIEL_VALIDE = /^\S+@\S+\.\S+$/;
 const aujourdhui = () => new Date().toLocaleDateString("en-CA"); // AAAA-MM-JJ, heure locale
+// première date commandable : un jour de préavis, comme DELAI_MIN_JOURS dans server.js
+const demain = () => {
+  const d = new Date();
+  d.setDate(d.getDate() + 1);
+  return d.toLocaleDateString("en-CA");
+};
