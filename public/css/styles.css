@@ -1,0 +1,948 @@
+/* ===============================================
+   QuébeChine — feuille de style unique
+   Fond encre, magenta de la marque, sceau rouge comme signature.
+   =============================================== */
+
+:root {
+  --fond: #0f0c11;
+  --surface: #1a151d;
+  --surface-2: #241d28;
+  --ligne: #3a2f3f;
+  --texte: #f4eef3;
+  --texte-doux: #b9adbb;
+  --magenta: #d6339f;
+  --magenta-fonce: #a81f7c;
+  --sceau: #c8243a;
+  --succes: #5ccf8f;
+  --erreur: #ff7a8a;
+
+  --police-titre: "Zen Old Mincho", "Songti SC", Georgia, serif;
+  --police-texte: "Karla", "Helvetica Neue", Arial, sans-serif;
+  --police-logo: "Parisienne", "Brush Script MT", cursive;
+
+  --rayon: 12px;
+  --largeur: 1140px;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--fond);
+  color: var(--texte);
+  font-family: var(--police-texte);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--police-titre);
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0;
+  text-wrap: balance;
+}
+
+p {
+  margin: 0;
+}
+
+:focus-visible {
+  outline: 3px solid var(--magenta);
+  outline-offset: 3px;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+.conteneur {
+  max-width: var(--largeur);
+  margin: 0 auto;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+}
+
+.surtitre {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--magenta);
+}
+
+.section {
+  padding-block: clamp(56px, 8vw, 96px);
+}
+
+.section--surface {
+  background: var(--surface);
+}
+
+.entete-section {
+  display: grid;
+  gap: 10px;
+  max-width: 60ch;
+  margin-bottom: 40px;
+}
+
+.entete-section h2,
+.titre-page {
+  font-size: clamp(2rem, 4.5vw, 2.9rem);
+}
+
+.entete-section p {
+  color: var(--texte-doux);
+}
+
+/* ===============================================
+   EN-TÊTE ET NAVIGATION
+   =============================================== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in srgb, var(--fond) 92%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--ligne);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  flex-wrap: wrap;
+  padding-block: 12px;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.logo__sceau {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 6px;
+  background: var(--sceau);
+  color: var(--texte);
+  font-family: var(--police-titre);
+  font-weight: 900;
+  font-size: 1.3rem;
+  transform: rotate(-4deg);
+}
+
+.logo__nom {
+  font-family: var(--police-logo);
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--magenta);
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--texte-doux);
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.nav a:hover {
+  color: var(--texte);
+  background: var(--surface-2);
+}
+
+.nav a[aria-current="page"] {
+  color: var(--texte);
+  background: var(--surface-2);
+}
+
+.compteur {
+  min-width: 22px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: var(--magenta);
+  color: var(--texte);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 22px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ===============================================
+   BOUTONS
+   =============================================== */
+
+.boutons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.bouton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  font: 700 1rem var(--police-texte);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.bouton:hover {
+  transform: translateY(-1px);
+}
+
+.bouton:disabled {
+  opacity: 0.6;
+  cursor: wait;
+  transform: none;
+}
+
+.bouton--plein {
+  background: var(--magenta);
+  color: var(--texte);
+}
+
+.bouton--plein:hover {
+  background: var(--magenta-fonce);
+}
+
+.bouton--contour {
+  border-color: var(--ligne);
+  color: var(--texte);
+  background: transparent;
+}
+
+.bouton--contour:hover {
+  border-color: var(--magenta);
+}
+
+.bouton--petit {
+  padding: 8px 16px;
+  font-size: 0.92rem;
+}
+
+.lien-discret {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--texte-doux);
+  font: inherit;
+  font-size: 0.88rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.lien-discret:hover {
+  color: var(--erreur);
+}
+
+/* ===============================================
+   ACCUEIL
+   =============================================== */
+
+.hero {
+  padding-block: clamp(40px, 7vw, 88px);
+}
+
+.hero__grille {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: clamp(32px, 5vw, 64px);
+  align-items: center;
+}
+
+.hero__texte {
+  display: grid;
+  gap: 20px;
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 5.6vw, 4rem);
+  font-weight: 900;
+  line-height: 1.08;
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: var(--magenta);
+}
+
+.hero__intro {
+  color: var(--texte-doux);
+  font-size: 1.15rem;
+  max-width: 46ch;
+}
+
+.hero__image {
+  position: relative;
+  margin: 0;
+}
+
+.hero__image img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--rayon);
+}
+
+.hero__sceau {
+  position: absolute;
+  left: -14px;
+  bottom: -14px;
+  display: grid;
+  place-items: center;
+  width: 92px;
+  height: 92px;
+  padding: 8px;
+  border-radius: 8px;
+  background: var(--sceau);
+  color: var(--texte);
+  font-family: var(--police-titre);
+  font-weight: 900;
+  font-size: 0.85rem;
+  line-height: 1.25;
+  text-align: center;
+  transform: rotate(-6deg);
+  box-shadow: 0 10px 30px rgb(0 0 0 / 0.45);
+}
+
+.atouts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.atout {
+  display: grid;
+  gap: 10px;
+  padding-top: 20px;
+  border-top: 2px solid var(--magenta);
+}
+
+.atout h3 {
+  font-size: 1.35rem;
+}
+
+.atout p {
+  color: var(--texte-doux);
+}
+
+.occasions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  margin: 0 0 32px;
+  padding: 0;
+}
+
+.occasions li {
+  padding: 8px 16px;
+  border: 1px solid var(--ligne);
+  border-radius: 999px;
+  color: var(--texte-doux);
+}
+
+.appel {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: clamp(28px, 4vw, 44px);
+  border-radius: var(--rayon);
+  background: var(--surface-2);
+}
+
+.appel h2 {
+  font-size: clamp(1.6rem, 3.4vw, 2.2rem);
+  max-width: 22ch;
+}
+
+.suite-menu {
+  margin-top: 32px;
+}
+
+/* ===============================================
+   PLATS (accueil et menu)
+   =============================================== */
+
+.grille-plats {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 480px), 1fr));
+  gap: 24px;
+}
+
+.grille-plats--apercu {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+}
+
+.plat {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 20px;
+  padding: 16px;
+  border-radius: var(--rayon);
+  background: var(--surface);
+  border: 1px solid var(--ligne);
+  transition: border-color 0.2s;
+}
+
+.section--surface .plat {
+  background: var(--fond);
+}
+
+.plat:hover {
+  border-color: var(--magenta-fonce);
+}
+
+.grille-plats--apercu .plat {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.plat__image {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.grille-plats--apercu .plat__image {
+  aspect-ratio: 16 / 10;
+}
+
+.plat__corps {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.plat__etiquette {
+  align-self: flex-start;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--magenta);
+}
+
+.plat__nom {
+  font-size: 1.35rem;
+}
+
+.plat__description {
+  color: var(--texte-doux);
+  font-size: 0.97rem;
+}
+
+.plat__pied {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 8px;
+}
+
+.prix {
+  font-family: var(--police-titre);
+  font-weight: 900;
+  font-size: 1.3rem;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ===============================================
+   LE CHEF
+   =============================================== */
+
+.chef {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(32px, 6vw, 72px);
+  align-items: center;
+}
+
+.chef__photo img {
+  width: 100%;
+  max-width: 380px;
+  border-radius: var(--rayon);
+  margin-inline: auto;
+}
+
+.chef__texte {
+  display: grid;
+  gap: 20px;
+  max-width: 60ch;
+}
+
+.chef__texte blockquote {
+  margin: 0;
+  padding-left: 20px;
+  border-left: 3px solid var(--sceau);
+  font-family: var(--police-titre);
+  font-size: 1.35rem;
+  line-height: 1.5;
+}
+
+.chef__texte p {
+  color: var(--texte-doux);
+}
+
+/* ===============================================
+   FORMULAIRES
+   =============================================== */
+
+.formulaire {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.champ {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+
+.champ--large {
+  grid-column: 1 / -1;
+}
+
+.champ label,
+.champ legend {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--texte-doux);
+}
+
+.champ input,
+.champ select,
+.champ textarea {
+  width: 100%;
+  padding: 11px 13px;
+  border: 1.5px solid var(--ligne);
+  border-radius: 8px;
+  background: var(--fond);
+  color: var(--texte);
+  font: inherit;
+}
+
+.champ textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.champ input:focus,
+.champ select:focus,
+.champ textarea:focus {
+  border-color: var(--magenta);
+  outline: none;
+}
+
+fieldset.champ {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.choix {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.choix label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 14px;
+  border: 1.5px solid var(--ligne);
+  border-radius: 8px;
+  color: var(--texte);
+  font-weight: 500;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.choix label:has(input:checked) {
+  border-color: var(--magenta);
+}
+
+.choix input {
+  accent-color: var(--magenta);
+}
+
+.formulaire .bouton {
+  grid-column: 1 / -1;
+  justify-self: start;
+}
+
+.message {
+  grid-column: 1 / -1;
+  padding: 12px 16px;
+  border-left: 4px solid var(--succes);
+  border-radius: 4px;
+  background: var(--surface-2);
+}
+
+.message--erreur {
+  border-left-color: var(--erreur);
+}
+
+/* ===============================================
+   PANIER
+   =============================================== */
+
+.panier {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 40px;
+  align-items: start;
+  margin-top: 32px;
+}
+
+.panier__lignes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--ligne);
+}
+
+.ligne {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 16px;
+  padding-block: 16px;
+  border-bottom: 1px solid var(--ligne);
+}
+
+.ligne__image {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.ligne__infos {
+  display: grid;
+  justify-items: start;
+  gap: 2px;
+}
+
+.ligne__nom {
+  font-size: 1.1rem;
+}
+
+.ligne__unitaire {
+  color: var(--texte-doux);
+  font-size: 0.9rem;
+}
+
+.ligne__total {
+  min-width: 90px;
+  text-align: right;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.quantite {
+  display: inline-flex;
+  align-items: center;
+  border: 1.5px solid var(--ligne);
+  border-radius: 999px;
+}
+
+.quantite button {
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  color: var(--texte);
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.quantite button:hover {
+  background: var(--surface-2);
+}
+
+.quantite span {
+  min-width: 28px;
+  text-align: center;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.panier__resume {
+  display: grid;
+  gap: 24px;
+  padding: 24px;
+  border-radius: var(--rayon);
+  background: var(--surface);
+  border: 1px solid var(--ligne);
+}
+
+.panier__resume h2 {
+  font-size: 1.5rem;
+}
+
+.totaux {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.totaux div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--texte-doux);
+}
+
+.totaux dd {
+  margin: 0;
+}
+
+.totaux .totaux__total {
+  margin-top: 6px;
+  padding-top: 12px;
+  border-top: 1px solid var(--ligne);
+  color: var(--texte);
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.etat {
+  display: grid;
+  justify-items: start;
+  gap: 16px;
+  max-width: 56ch;
+  margin-top: 32px;
+  padding: 28px;
+  border-radius: var(--rayon);
+  background: var(--surface);
+}
+
+.etat h2 {
+  font-size: 1.6rem;
+}
+
+.etat p {
+  color: var(--texte-doux);
+}
+
+.etat strong {
+  color: var(--texte);
+}
+
+/* ===============================================
+   CONTACT
+   =============================================== */
+
+.contact {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(32px, 6vw, 72px);
+  align-items: start;
+}
+
+.coordonnees {
+  display: grid;
+  gap: 24px;
+  margin: 0;
+}
+
+.coordonnees dt {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--magenta);
+}
+
+.coordonnees dd {
+  margin: 4px 0 0;
+  font-family: var(--police-titre);
+  font-size: 1.4rem;
+  overflow-wrap: anywhere;
+}
+
+.coordonnees dd a {
+  text-decoration-color: var(--magenta);
+  text-underline-offset: 4px;
+}
+
+/* ===============================================
+   PIED DE PAGE ET NOTIFICATION
+   =============================================== */
+
+.site-footer {
+  padding-block: 32px;
+  border-top: 1px solid var(--ligne);
+  color: var(--texte-doux);
+  font-size: 0.95rem;
+}
+
+.site-footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.site-footer .logo__nom {
+  font-size: 1.6rem;
+}
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+  z-index: 60;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+  width: max-content;
+  max-width: calc(100% - 32px);
+  padding: 12px 18px;
+  border-radius: 10px;
+  background: var(--texte);
+  color: var(--fond);
+  font-weight: 500;
+  box-shadow: 0 12px 30px rgb(0 0 0 / 0.5);
+  transform: translate(-50%, 140%);
+  transition: transform 0.3s ease;
+}
+
+.toast--visible {
+  transform: translate(-50%, 0);
+}
+
+.toast a {
+  color: var(--magenta-fonce);
+  font-weight: 700;
+}
+
+/* ===============================================
+   RESPONSIVE
+   =============================================== */
+
+@media (max-width: 880px) {
+  .hero__grille,
+  .chef,
+  .panier,
+  .contact {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .atouts {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .hero__sceau {
+    left: auto;
+    right: 12px;
+  }
+}
+
+@media (max-width: 560px) {
+  .site-header {
+    position: static;
+  }
+
+  .nav a {
+    padding: 6px 10px;
+  }
+
+  .plat {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .plat__image {
+    aspect-ratio: 16 / 10;
+  }
+
+  .formulaire {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ligne {
+    grid-template-columns: 56px minmax(0, 1fr) auto;
+  }
+
+  .ligne__image {
+    width: 56px;
+    height: 56px;
+  }
+
+  .ligne__total {
+    grid-column: 2 / -1;
+    text-align: left;
+  }
+}

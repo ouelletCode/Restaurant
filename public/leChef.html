@@ -1,49 +1,77 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr-CA">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Le chef</title>
-    <link rel="stylesheet" href="stylesheet.css" />
+    <title>Le chef · QuébeChine</title>
+    <meta name="description" content="Le chef de QuébeChine et son équipe, passionnés de cuisine asiatique." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700&family=Parisienne&family=Zen+Old+Mincho:wght@600;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <!-- Header -->
-    <header class="header">
-      <h1>Voici le chef et son équipe</h1>
-      <nav>
-        <ul>
-          <li>
-            <a href="./index.html" aria-label="Page d'accueil">Accueil</a>
-          </li>
-          <li><a href="./leChef.html" aria-label="Le chef">Le Chef</a></li>
-          <li><a href="./menu.html" aria-label="Menu">Menu</a></li>
-          <li><a href="./contact.html" aria-label="Contact">Contact</a></li>
-          <li><a href="./panier.html">Panier</a></li>
-        </ul>
-      </nav>
+    <header class="site-header">
+      <div class="conteneur site-header__inner">
+        <a class="logo" href="index.html" aria-label="QuébeChine, accueil">
+          <span class="logo__sceau" aria-hidden="true">食</span>
+          <span class="logo__nom">QuébeChine</span>
+        </a>
+        <nav aria-label="Navigation principale">
+          <ul class="nav">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="leChef.html" aria-current="page">Le chef</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="contact.html">Contact</a></li>
+            <li>
+              <a href="panier.html">Panier <span class="compteur" data-compteur hidden>0</span></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
-    <!-- Conteneur principal pour l'image et le texte -->
-    <div class="main-container">
-      <!-- Boîte contenant l'image -->
-      <div class="box image-box">
-        <img src="004.jpg" alt="Portrait du chef et son équipe" />
-      </div>
+    <main>
 
-      <!-- Boîte contenant le texte -->
-      <div class="box text-box">
-        <p>
-          Je me présente, je suis le chef de QuébeChine, un passionné de cuisine
-          asiatique qui a décidé de partager son amour pour les saveurs de
-          l'Asie à travers ce service
-        </p>
+      <section class="section">
+        <div class="conteneur chef">
+          <figure class="chef__photo">
+            <img src="images/004.jpg" alt="Portrait du chef de QuébeChine et de son équipe" width="308" height="548" />
+          </figure>
+          <div class="chef__texte">
+            <p class="surtitre">Le chef et son équipe</p>
+            <h1 class="titre-page">La passion des saveurs de l'Asie</h1>
+            <blockquote>
+              Je me présente, je suis le chef de QuébeChine, un passionné de cuisine asiatique qui a décidé
+              de partager son amour pour les saveurs de l'Asie à travers ce service.
+            </blockquote>
+            <p>
+              Avec son équipe, il prépare chaque commande le jour même : sauces maison, légumes croquants,
+              herbes fraîches et un équilibre entre le sucré, le salé, l'acidulé et le relevé.
+            </p>
+            <div class="boutons">
+              <a class="bouton bouton--plein" href="menu.html">Découvrir ses plats</a>
+              <a class="bouton bouton--contour" href="contact.html">Nous écrire</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="conteneur site-footer__inner">
+        <div>
+          <span class="logo__nom">QuébeChine</span>
+          <p>Service traiteur asiatique</p>
+        </div>
+        <div>
+          <p>514 885-9312</p>
+          <p><a href="mailto:contact@restaurant.com">contact@restaurant.com</a></p>
+        </div>
       </div>
-    </div>
+    </footer>
+
+    <script src="js/catalogue.js"></script>
+    <script src="js/panier.js"></script>
   </body>
 </html>

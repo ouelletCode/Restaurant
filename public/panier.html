@@ -1,46 +1,121 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr-CA">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Panier</title>
-    <link rel="stylesheet" href="Menu_stylesheet.css" />
+    <title>Panier · QuébeChine</title>
+    <meta name="description" content="Votre panier et votre commande traiteur QuébeChine." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700&family=Parisienne&family=Zen+Old+Mincho:wght@600;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <header class="header">
-      <h1 class="header">Panier</h1>
-      <nav class="">
-        <ul>
-          <li><a href="./index.html">Accueil</a></li>
-          <li><a href="./leChef.html">Le Chef</a></li>
-          <li><a href="./menu.html">Menu</a></li>
-          <li><a href="./contact.html">Contact</a></li>
-          <li><a href="./panier.html">Panier</a></li>
-        </ul>
-      </nav>
+    <header class="site-header">
+      <div class="conteneur site-header__inner">
+        <a class="logo" href="index.html" aria-label="QuébeChine, accueil">
+          <span class="logo__sceau" aria-hidden="true">食</span>
+          <span class="logo__nom">QuébeChine</span>
+        </a>
+        <nav aria-label="Navigation principale">
+          <ul class="nav">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="leChef.html">Le chef</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="contact.html">Contact</a></li>
+            <li>
+              <a href="panier.html" aria-current="page">Panier <span class="compteur" data-compteur hidden>0</span></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
-    <h2>panier</h2>
 
-    <div class="item">
-      <h3>Pizza Pepperoni</h3>
-      <p>18.99$</p>
-      <button onclick="ajouterAuPanier(1, 'Pizza Pepperoni', 18.99)">
-        Ajouter
-      </button>
-    </div>
+    <main>
 
-    <div class="item">
-      <h3>Poutine</h3>
-      <p>12.99$</p>
-      <button onclick="ajouterAuPanier(2, 'Poutine', 12.99)">Ajouter</button>
-    </div>
+      <section class="section">
+        <div class="conteneur">
+          <h1 class="titre-page">Votre panier</h1>
 
-    <a href="panier.html">Voir panier</a>
+          <div class="panier" data-panier hidden>
+            <ul class="panier__lignes" data-lignes aria-label="Plats dans le panier"></ul>
+
+            <aside class="panier__resume" aria-labelledby="titre-resume">
+              <h2 id="titre-resume">Résumé</h2>
+              <dl class="totaux" data-totaux></dl>
+
+              <form id="form-commande" class="formulaire" novalidate>
+                <div class="champ champ--large">
+                  <label for="commande-nom">Nom</label>
+                  <input id="commande-nom" name="nom" type="text" autocomplete="name" required />
+                </div>
+                <div class="champ">
+                  <label for="commande-courriel">Courriel</label>
+                  <input id="commande-courriel" name="courriel" type="email" autocomplete="email" required />
+                </div>
+                <div class="champ">
+                  <label for="commande-telephone">Téléphone</label>
+                  <input id="commande-telephone" name="telephone" type="tel" autocomplete="tel" placeholder="514 555-0123" required />
+                </div>
+                <div class="champ">
+                  <label for="commande-date">Date de l'événement</label>
+                  <input id="commande-date" name="date" type="date" required />
+                </div>
+                <div class="champ">
+                  <label for="commande-invites">Nombre d'invités</label>
+                  <input id="commande-invites" name="invites" type="number" min="1" max="500" value="10" />
+                </div>
+                <fieldset class="champ champ--large">
+                  <legend>Réception</legend>
+                  <div class="choix">
+                    <label><input type="radio" name="mode" value="livraison" checked /> Livraison</label>
+                    <label><input type="radio" name="mode" value="cueillette" /> Cueillette</label>
+                  </div>
+                </fieldset>
+                <div class="champ champ--large">
+                  <label for="commande-notes">Allergies, adresse ou précisions</label>
+                  <textarea id="commande-notes" name="notes" rows="3"></textarea>
+                </div>
+                <p class="message" data-message role="status" hidden></p>
+                <button class="bouton bouton--plein" type="submit">Envoyer la commande</button>
+              </form>
+            </aside>
+          </div>
+
+          <div class="etat" data-vide hidden>
+            <h2>Votre panier est vide</h2>
+            <p>Choisissez vos plats dans le menu, ils apparaîtront ici.</p>
+            <a class="bouton bouton--plein" href="menu.html">Voir le menu</a>
+          </div>
+
+          <div class="etat" data-confirmation tabindex="-1" hidden>
+            <h2>Merci, votre commande est envoyée</h2>
+            <p>
+              Commande <strong data-numero></strong>, total <strong data-total></strong> taxes incluses.
+              Nous vous confirmons les détails à <strong data-courriel></strong>.
+            </p>
+            <a class="bouton bouton--contour" href="menu.html">Retour au menu</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="conteneur site-footer__inner">
+        <div>
+          <span class="logo__nom">QuébeChine</span>
+          <p>Service traiteur asiatique</p>
+        </div>
+        <div>
+          <p>514 885-9312</p>
+          <p><a href="mailto:contact@restaurant.com">contact@restaurant.com</a></p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/catalogue.js"></script>
+    <script src="js/panier.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/page-panier.js"></script>
   </body>
 </html>

@@ -1,51 +1,123 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr-CA">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Québechine</title>
-    <link rel="stylesheet" href="stylesheet.css" />
+    <title>QuébeChine · Service traiteur asiatique</title>
+    <meta name="description" content="Service traiteur asiatique : plateaux à partager et repas complets cuisinés le jour même pour vos événements." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700&family=Parisienne&family=Zen+Old+Mincho:wght@600;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <header class="header">
-      <h1 class="header">Bienvenu chez QuébeChine</h1>
-      <nav class="">
-        <ul>
-          <li><a href="./index.html">Accueil</a></li>
-          <li><a href="./leChef.html">Le Chef</a></li>
-          <li><a href="./menu.html">Menu</a></li>
-          <li><a href="./contact.html">Contact</a></li>
-          <li><a href="./panier.html">Panier</a></li>
-        </ul>
-      </nav>
+    <header class="site-header">
+      <div class="conteneur site-header__inner">
+        <a class="logo" href="index.html" aria-label="QuébeChine, accueil">
+          <span class="logo__sceau" aria-hidden="true">食</span>
+          <span class="logo__nom">QuébeChine</span>
+        </a>
+        <nav aria-label="Navigation principale">
+          <ul class="nav">
+          <li><a href="index.html" aria-current="page">Accueil</a></li>
+          <li><a href="leChef.html">Le chef</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="contact.html">Contact</a></li>
+            <li>
+              <a href="panier.html">Panier <span class="compteur" data-compteur hidden>0</span></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
-    <p>
-      Notre service traiteur propose une cuisine savoureuse et généreuse,
-      préparée avec des ingrédients frais et une attention particulière à la
-      qualité. Que ce soit pour un événement corporatif, une fête familiale ou
-      une réception entre amis, nous créons des menus qui s’adaptent à vos
-      besoins et à l’ambiance de votre occasion.
-    </p>
 
-    <p>
-      Des plateaux gourmands aux repas complets, chaque commande est pensée pour
-      être pratique, élégante et délicieuse. Nos plats sont cuisinés le jour
-      même afin de garantir fraîcheur et saveurs, et peuvent être personnalisés
-      selon vos préférences alimentaires, le nombre d’invités et le type
-      d’événement.
-    </p>
+    <main>
 
-    <p>
-      Faites confiance à notre équipe pour offrir une expérience culinaire sans
-      stress. Nous nous occupons de la préparation pour que vous puissiez
-      profiter de vos invités et de votre événement. Un service fiable, des
-      portions généreuses et des saveurs qui plaisent à tous.
-    </p>
+      <section class="hero">
+        <div class="conteneur hero__grille">
+          <div class="hero__texte">
+            <p class="surtitre">Service traiteur asiatique</p>
+            <h1>Les saveurs de l'Asie, <em>cuisinées le jour même</em> pour vos événements</h1>
+            <p class="hero__intro">
+              Plateaux à partager ou repas complets, préparés avec des ingrédients frais et adaptés à
+              vos invités, à vos préférences alimentaires et à votre occasion.
+            </p>
+            <div class="boutons">
+              <a class="bouton bouton--plein" href="menu.html">Voir le menu</a>
+              <a class="bouton bouton--contour" href="contact.html">Demander une soumission</a>
+            </div>
+          </div>
+          <figure class="hero__image">
+            <img src="images/general-tao.jpg" alt="Poulet Général Tao croustillant au sésame et aux oignons verts" width="1160" height="650" />
+            <span class="hero__sceau" aria-hidden="true">Cuisiné<br />le jour<br />même</span>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section section--surface">
+        <div class="conteneur">
+          <div class="entete-section">
+            <p class="surtitre">Au menu</p>
+            <h2>Nos plats à commander</h2>
+          </div>
+          <div class="grille-plats grille-plats--apercu" data-menu data-limite="3"></div>
+          <p class="suite-menu"><a class="bouton bouton--contour" href="menu.html">Voir tout le menu</a></p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="conteneur">
+          <div class="entete-section">
+            <p class="surtitre">Notre façon de faire</p>
+            <h2>Une expérience culinaire sans stress</h2>
+          </div>
+          <ul class="atouts">
+            <li class="atout">
+              <h3>Frais du jour</h3>
+              <p>Nos plats sont cuisinés le jour même pour garantir fraîcheur et saveurs.</p>
+            </li>
+            <li class="atout">
+              <h3>Sur mesure</h3>
+              <p>Chaque menu s'adapte au nombre d'invités, au type d'événement et aux préférences alimentaires.</p>
+            </li>
+            <li class="atout">
+              <h3>Portions généreuses</h3>
+              <p>Nous nous occupons de la préparation pour que vous puissiez profiter de vos invités.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section section--surface">
+        <div class="conteneur">
+          <ul class="occasions" aria-label="Occasions">
+            <li>Événements corporatifs</li>
+            <li>Fêtes familiales</li>
+            <li>Réceptions entre amis</li>
+          </ul>
+          <div class="appel">
+            <h2>Vous préparez un événement&nbsp;? Parlons de votre menu.</h2>
+            <a class="bouton bouton--plein" href="contact.html">Demander une soumission</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="conteneur site-footer__inner">
+        <div>
+          <span class="logo__nom">QuébeChine</span>
+          <p>Service traiteur asiatique</p>
+        </div>
+        <div>
+          <p>514 885-9312</p>
+          <p><a href="mailto:contact@restaurant.com">contact@restaurant.com</a></p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/catalogue.js"></script>
+    <script src="js/panier.js"></script>
+    <script src="js/menu.js"></script>
   </body>
 </html>

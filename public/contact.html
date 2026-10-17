@@ -1,35 +1,100 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr-CA">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact</title>
-    <link rel="stylesheet" href="stylesheet.css" />
+    <title>Contact · QuébeChine</title>
+    <meta name="description" content="Contactez QuébeChine pour une soumission ou un menu personnalisé." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700&family=Parisienne&family=Zen+Old+Mincho:wght@600;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <header class="header">
-      <h1 class="header">Contact</h1>
-      <nav class="">
-        <ul>
-          <li><a href="./index.html">Accueil</a></li>
-          <li><a href="./leChef.html">Le Chef</a></li>
-          <li><a href="./menu.html">Menu</a></li>
-          <li><a href="./contact.html">Contact</a></li>
-          <li><a href="./panier.html">Panier</a></li>
-        </ul>
-      </nav>
+    <header class="site-header">
+      <div class="conteneur site-header__inner">
+        <a class="logo" href="index.html" aria-label="QuébeChine, accueil">
+          <span class="logo__sceau" aria-hidden="true">食</span>
+          <span class="logo__nom">QuébeChine</span>
+        </a>
+        <nav aria-label="Navigation principale">
+          <ul class="nav">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="leChef.html">Le chef</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="contact.html" aria-current="page">Contact</a></li>
+            <li>
+              <a href="panier.html">Panier <span class="compteur" data-compteur hidden>0</span></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
-    <p>
-      Vous pouvez nous contacter par téléphone au 514&nbsp;885&nbsp;9312 ou par
-      courriel à
-      <a href="mailto:contact@restaurant.com">contact@restaurant.com</a>.
-    </p>
+    <main>
+
+      <section class="section">
+        <div class="conteneur contact">
+          <div class="entete-section">
+            <p class="surtitre">Contact</p>
+            <h1 class="titre-page">Parlons de votre événement</h1>
+            <p>Une question, un menu personnalisé ou une soumission pour un groupe&nbsp;? Écrivez-nous ou appelez-nous.</p>
+            <dl class="coordonnees">
+              <div>
+                <dt>Téléphone</dt>
+                <dd>514 885-9312</dd>
+              </div>
+              <div>
+                <dt>Courriel</dt>
+                <dd><a href="mailto:contact@restaurant.com">contact@restaurant.com</a></dd>
+              </div>
+            </dl>
+          </div>
+
+          <form id="form-contact" class="formulaire" novalidate>
+            <div class="champ">
+              <label for="contact-nom">Nom</label>
+              <input id="contact-nom" name="nom" type="text" autocomplete="name" required />
+            </div>
+            <div class="champ">
+              <label for="contact-courriel">Courriel</label>
+              <input id="contact-courriel" name="courriel" type="email" autocomplete="email" required />
+            </div>
+            <div class="champ">
+              <label for="contact-date">Date de l'événement (si connue)</label>
+              <input id="contact-date" name="date" type="date" />
+            </div>
+            <div class="champ">
+              <label for="contact-invites">Nombre d'invités</label>
+              <input id="contact-invites" name="invites" type="number" min="1" max="500" />
+            </div>
+            <div class="champ champ--large">
+              <label for="contact-message">Votre message</label>
+              <textarea id="contact-message" name="message" rows="5" required placeholder="Type d'événement, préférences alimentaires, budget…"></textarea>
+            </div>
+            <p class="message" data-message role="status" hidden></p>
+            <button class="bouton bouton--plein" type="submit">Envoyer</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="conteneur site-footer__inner">
+        <div>
+          <span class="logo__nom">QuébeChine</span>
+          <p>Service traiteur asiatique</p>
+        </div>
+        <div>
+          <p>514 885-9312</p>
+          <p><a href="mailto:contact@restaurant.com">contact@restaurant.com</a></p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/catalogue.js"></script>
+    <script src="js/panier.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/page-contact.js"></script>
   </body>
 </html>
