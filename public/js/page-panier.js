@@ -60,7 +60,7 @@ zoneLignes.addEventListener("click", (e) => {
   if (bouton.dataset.action === "retirer") Panier.changer(ligne.id, 0);
 });
 
-formCommande.date.min = aujourdhui();
+formCommande.date.min = demain();
 
 formCommande.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -70,7 +70,8 @@ formCommande.addEventListener("submit", async (e) => {
   if (!client.nom.trim()) erreur = "Indiquez votre nom.";
   else if (!COURRIEL_VALIDE.test(client.courriel)) erreur = "Vérifiez votre courriel, il semble incomplet.";
   else if (client.telephone.replace(/\D/g, "").length < 10) erreur = "Indiquez un numéro de téléphone à 10 chiffres.";
-  else if (!client.date || client.date < aujourdhui()) erreur = "Choisissez la date de votre événement.";
+  else if (!client.date) erreur = "Choisissez la date de votre événement.";
+  else if (client.date < demain()) erreur = "Les commandes doivent être passées au moins un jour à l'avance.";
   if (erreur) return afficherMessage(messageCommande, erreur, true);
 
   boutonCommande.disabled = true;
